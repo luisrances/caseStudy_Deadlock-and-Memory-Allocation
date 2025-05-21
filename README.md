@@ -44,6 +44,7 @@
 ### Prerequisites
 ```python
 pip install numpy matplotlib networkx pytest
+```
 
 ## Sample Visualizations
 
