@@ -3,7 +3,7 @@
   This project attempts the simulation of deadlock scenarios and evaluating allocation strategies, mainly First fit, Best fit, and Worst fit, and analyzing and charting each individual efficiency and impact on fragmentation and system safe.
 
 # Members:
-    Bensng, Denmark
+    Bensing, Denmark
     Deocampo, Arden Klyde
     Mellomida, Jhondel
     Ocariza, James Andrew
