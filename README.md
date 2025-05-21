@@ -51,7 +51,7 @@ pip install numpy matplotlib networkx pytest
 ### Deadlock Detection and Prevention
 
 #### Banker's Algorithm Visualization
-![Banker's Algorithm](images/Banker's%20Algorithm.png)
+![Banker's Algorithm](images/Bankers%20Algorithm.png)
 *Visualization of system state matrices (Allocation, Max Claim, and Need) in Banker's Algorithm. The heatmap shows resource distribution across processes.*
 
 #### Resource Allocation Graph
