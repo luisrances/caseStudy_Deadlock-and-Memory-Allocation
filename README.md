@@ -44,3 +44,48 @@
 ### Prerequisites
 ```python
 pip install numpy matplotlib networkx pytest
+
+## Sample Visualizations
+
+### Deadlock Detection and Prevention
+
+#### Banker's Algorithm Visualization
+![Banker's Algorithm](images/Banker's%20Algorithm.png)
+*Visualization of system state matrices (Allocation, Max Claim, and Need) in Banker's Algorithm. The heatmap shows resource distribution across processes.*
+
+#### Resource Allocation Graph
+![Resource Allocation Graph](images/Resource%20Allocation%20Graph.png)
+*Resource Allocation Graph showing processes (circles), resources (squares), request edges (dashed red), and allocation edges (solid blue).*
+
+![Resource Allocation Graph - 2](images/Resource%20Allocation%20Graph%20-%202.png)
+*Another state of the RAG demonstrating a potential deadlock scenario with circular wait condition.*
+
+### Memory Allocation Strategies
+
+#### First Fit Algorithm
+![First Fit](images/memory%20allocation%20-%20first%20fit.png)
+*First Fit memory allocation showing memory blocks with allocated (blue) and free (grey) segments.*
+
+![First Fit - 2](images/memory%20allocation%20-%20first%20fit%20-%202.png)
+*First Fit algorithm after several allocations and deallocations, showing potential fragmentation.*
+
+#### Best Fit Algorithm
+![Best Fit](images/memory%20allocation%20-%20best%20fit.png)
+*Best Fit allocation strategy minimizing internal fragmentation by choosing the closest matching free block.*
+
+![Best Fit - 2](images/memory%20allocation%20-%20best%20fit%20-%202.png)
+*Best Fit algorithm demonstrating efficient space utilization with multiple processes.*
+
+#### Worst Fit Algorithm
+![Worst Fit](images/memory%20allocation%20-%20worst%20fit.png)
+*Worst Fit allocation strategy choosing the largest available blocks for allocation.*
+
+![Worst Fit - 2](images/memory%20allocation%20-%20worst%20fit%20-%202.png)
+*Worst Fit algorithm showing memory state after multiple allocations.*
+
+### Performance Comparison
+![Memory Allocation Comparison](images/memory%20allocation%20-%20comparison%20-%202.png)
+*Comparative analysis of all three allocation strategies showing successful allocations, fragmentation percentage, and search times.*
+
+![Memory Allocation Comparison - 2](images/memory%20allocation%20-%20comparisonpng.png)
+*Performance metrics comparison under different memory pressure scenarios.*
