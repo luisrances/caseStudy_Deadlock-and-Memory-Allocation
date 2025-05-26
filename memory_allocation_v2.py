@@ -1,5 +1,20 @@
 import matplotlib.pyplot as plt
+import numpy as np
 import time
+import random
+
+def generate_realistic_sample(num_blocks=5, num_processes=4):
+    # Simulate memory blocks between 128MB to 1024MB
+    memory_blocks = sorted([random.randint(128, 1024) for _ in range(num_blocks)], reverse=True)
+
+    # Simulate processes with memory needs between 100MB to 800MB
+    processes = sorted([random.randint(100, 800) for _ in range(num_processes)], reverse=True)
+
+    print("# === Randomly Generated Sample ===")
+    print("memory_blocks =", memory_blocks)
+    print("processes =", processes)
+
+    return memory_blocks, processes
 
 def log_allocation_result(strategy, processes, allocation, block_history):
     print(f"\n=== Testing {strategy} Algorithm ===")
@@ -107,6 +122,47 @@ def visualize_time_efficiency(times):
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.show()
 
+def summarize_visualization(processes, allocations_dict, block_states_dict, search_times):
+    strategies = list(allocations_dict.keys())
+    
+    successful_allocations = [sum(1 for a in allocations_dict[s] if a != -1) for s in strategies]
+    fragmentation = [
+        (sum(block_states_dict[s][-1]) / sum(memory_blocks)) * 100 if block_states_dict[s] else 0
+        for s in strategies
+    ]
+    search_ms = [search_times[s] * 1000 for s in strategies]  # convert seconds to milliseconds
+
+    fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+
+    # Subplot 1: Successful Allocations
+    axs[0].bar(strategies, successful_allocations, color='green')
+    axs[0].set_title("Successful Process Allocations")
+    axs[0].set_ylabel("Number of Processes")
+    for i, val in enumerate(successful_allocations):
+        axs[0].text(i, val + 0.2, str(val), ha='center')
+
+    # Subplot 2: Fragmentation
+    axs[1].bar(strategies, fragmentation, color='orange')
+    axs[1].set_title("Memory Fragmentation")
+    axs[1].set_ylabel("Fragmentation (%)")
+    for i, val in enumerate(fragmentation):
+        axs[1].text(i, val + 0.2, f"{val:.2f}", ha='center')
+
+    # Subplot 3: Time Efficiency
+    axs[2].bar(strategies, search_ms, color='skyblue')
+    axs[2].set_title("Average Search Time")
+    axs[2].set_ylabel("Time (milliseconds)")
+    for i, val in enumerate(search_ms):
+        axs[2].text(i, val + 0.1, f"{val:.2f}", ha='center')
+
+    for ax in axs:
+        ax.set_xticks(range(len(strategies)))
+        ax.set_xticklabels(strategies, rotation=15)
+
+    plt.tight_layout()
+    plt.show()
+
+
 def compare_algorithms(memory_blocks, processes):
     print("Memory Blocks:", memory_blocks)
     print("Processes:", processes)
@@ -139,8 +195,23 @@ def compare_algorithms(memory_blocks, processes):
     visualize_time_efficiency(search_times)
     print(search_times)
 
+    allocations = {
+        "First Fit": allocation1,
+        "Best Fit": allocation2,
+        "Worst Fit": allocation3
+    }
+
+    block_states = {
+        "First Fit": states1,
+        "Best Fit": states2,
+        "Worst Fit": states3
+    }
+
+    summarize_visualization(processes, allocations, block_states, search_times)
+
 # Sample usage
-memory_blocks = [100, 500, 200, 300, 600]
-processes = [212, 417, 112, 426]
+# memory_blocks = [100, 500, 200, 300, 600]
+# processes = [212, 417, 112, 426]
+memory_blocks, processes = generate_realistic_sample() # Generate realistic sample data
 
 compare_algorithms(memory_blocks, processes)
