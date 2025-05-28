@@ -90,7 +90,7 @@ pip install numpy matplotlib networkx pytest
 ![Worst Fit - 2](images/memory%20allocation%20-%20worst%20fit%20-%202.png)
 *Worst Fit algorithm showing memory state after multiple allocations.*
 
-![Worst Fit - 3](images/worst%20fit.png)<br
+![Worst Fit - 3](images/worst%20fit.png)<br>
 *Worst Fit algorithm allocation and memory fragmentation*
 
 ### Performance
