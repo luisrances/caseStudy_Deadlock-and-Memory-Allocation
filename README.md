@@ -70,12 +70,18 @@ pip install numpy matplotlib networkx pytest
 ![First Fit - 2](images/memory%20allocation%20-%20first%20fit%20-%202.png)
 *First Fit algorithm after several allocations and deallocations, showing potential fragmentation.*
 
+![first Fit - 3](images/firstfit.png)
+*First Fit algorithm allocation and memory fragmentation
+
 #### Best Fit Algorithm
 ![Best Fit](images/memory%20allocation%20-%20best%20fit.png)
 *Best Fit allocation strategy minimizing internal fragmentation by choosing the closest matching free block.*
 
 ![Best Fit - 2](images/memory%20allocation%20-%20best%20fit%20-%202.png)
 *Best Fit algorithm demonstrating efficient space utilization with multiple processes.*
+
+![Best Fit - 3](images/bestfit.png)
+*best Fit algorithm allocation and memory fragmentation
 
 #### Worst Fit Algorithm
 ![Worst Fit](images/memory%20allocation%20-%20worst%20fit.png)
@@ -84,9 +90,10 @@ pip install numpy matplotlib networkx pytest
 ![Worst Fit - 2](images/memory%20allocation%20-%20worst%20fit%20-%202.png)
 *Worst Fit algorithm showing memory state after multiple allocations.*
 
-### Performance Comparison
-![Memory Allocation Comparison](images/memory%20allocation%20-%20comparison%20-%202.png)
+![Worst Fit - 3](images/Worstfit.png)
+*Worst Fit algorithm allocation and memory fragmentation
+
+### Performance
+![Memory Allocation Comparison](images/process%20alo.png)
 *Comparative analysis of all three allocation strategies showing successful allocations, fragmentation percentage, and search times.*
 
-![Memory Allocation Comparison - 2](images/memory%20allocation%20-%20comparisonpng.png)
-*Performance metrics comparison under different memory pressure scenarios.*
